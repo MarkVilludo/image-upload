@@ -2,7 +2,7 @@
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 
-if (!function_exists('imageUpload')) {
+if (!function_exists('hanap')) {
     /**
      * Get the Hanap instance
      *
@@ -105,20 +105,25 @@ if (!function_exists('saveOriginal')) {
     }
 }
 if (!function_exists('storeImages')) {
-    if (request()->file('file')) {
-        //call resize and crop images function
-            $file = request()->file('file');
-            $origFilePath = request()->savePath;
-            $filename = md5($file->getClientOriginalName());
-            $filetype = $file->getClientOriginalExtension();
-            storeImages($file, $origFilePath);
-        //end
-            
-        $data['path'] = $origFilePath;
-        $data['file_name'] = $filename.'.'.$filetype;
 
-        $statusCode = 200;
+    function storeImages(Request $request){
+        if ($request->file('file')) {
+            //call resize and crop images function
+                $file = $request->file('file');
+                $origFilePath = $request->savePath;
+                $filename = md5($file->getClientOriginalName());
+                $filetype = $file->getClientOriginalExtension();
+                storeImages($file, $origFilePath);
+            //end
+                
+            $data['path'] = $origFilePath;
+            $data['file_name'] = $filename.'.'.$filetype;
+
+            $statusCode = 200;
+        }
     }
+
+    
 }
 
     
