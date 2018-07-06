@@ -1,5 +1,6 @@
 <?php
 use Intervention\Image\Facades\Image;
+use App\Http\Requests\Request;
 
 if (!function_exists('hanap')) {
     /**
