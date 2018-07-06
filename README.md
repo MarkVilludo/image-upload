@@ -10,7 +10,7 @@ composer require mark-villudo/image-upload
 ```
 
 
-##Usage
+## Usage
 ```
   //Get file and declare path to store image
   $file = $request->file('file');
