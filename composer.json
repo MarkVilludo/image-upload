@@ -23,15 +23,5 @@
             "src/helper.php"
         ]
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "MarkVilludo\\ImageUpload\\ServiceProvider"
-            ],
-            "aliases": {
-                "ImageUpload": "MarkVilludo\\ImageUpload\\Facade"
-            }
-        }
-    },
     "minimum-stability": "dev"
 }

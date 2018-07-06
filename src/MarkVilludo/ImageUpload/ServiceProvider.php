@@ -15,13 +15,9 @@ class ServiceProvider extends BaseServiceProvider {
     public function boot()
     {      
         
-        $this->publishes([
-            __DIR__ . '/../../config/imageUpload.php' => config_path('imageUpload.php'),
-        ]);
-        
-        $this->mergeConfigFrom(
-            __DIR__ . '/../../config/imageUpload.php', 'imageUpload'
-        );
+        // $this->mergeConfigFrom(
+        //     __DIR__ . '/../../config/imageUpload.php', 'imageUpload'
+        // );
     }
 
     /**
@@ -31,9 +27,9 @@ class ServiceProvider extends BaseServiceProvider {
      */
     public function register()
     {
-        $this->app->bind('imageUpload', function() {
-            return new ImageUpload();
-        });
+        // $this->app->bind('imageUpload', function() {
+        //     return new ImageUpload();
+        // });
     }
 
 }
