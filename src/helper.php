@@ -1,6 +1,6 @@
 <?php
 use Intervention\Image\Facades\Image;
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
 
 if (!function_exists('imageUpload')) {
     /**
