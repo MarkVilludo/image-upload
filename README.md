@@ -19,3 +19,10 @@ composer require mark-villudo/image-upload
   //use helper to store images with multiple data
   storeImages($file, $origFilePath);
 ```
+
+##Credits
+
+```
+Master Jes Dolfo
+
+```
