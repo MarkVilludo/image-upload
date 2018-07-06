@@ -2,7 +2,7 @@
 use Intervention\Image\Facades\Image;
 use App\Http\Requests\Request;
 
-if (!function_exists('hanap')) {
+if (!function_exists('imageUpload')) {
     /**
      * Get the Hanap instance
      *
