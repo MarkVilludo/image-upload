@@ -20,7 +20,7 @@ composer require mark-villudo/image-upload
   storeImages($file, $origFilePath);
 ```
 
-##Credits
+## Credits
 
 ```
 Master Jes Dolfo
