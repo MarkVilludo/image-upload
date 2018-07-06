@@ -105,25 +105,57 @@ if (!function_exists('saveOriginal')) {
     }
 }
 if (!function_exists('storeImages')) {
+    //Dynamic store image with original path and file
+    function storeImages($file, $origFilePath)
+    {
+        $filename = md5($file->getClientOriginalName());
+        $filetype = $file->getClientOriginalExtension();
+        $origFileName = $filename.'.'.$filetype;
+        $large = $origFilePath .'/original';
+        $medium = $origFilePath .'/medium';
+        $small = $origFilePath .'/small';
+        $xsmall = $origFilePath .'/xsmall';
 
-    function storeImages(Request $request){
-        if ($request->file('file')) {
-            //call resize and crop images function
-                $file = $request->file('file');
-                $origFilePath = $request->savePath;
-                $filename = md5($file->getClientOriginalName());
-                $filetype = $file->getClientOriginalExtension();
-                storeImages($file, $origFilePath);
-            //end
-                
-            $data['path'] = $origFilePath;
-            $data['file_name'] = $filename.'.'.$filetype;
+        // if (!file_exists(public_path().'/'.$large)) {
+        //   mkdir(public_path().$large, 0777, true);
+        // }
+        if (!file_exists(public_path().'/'.$medium)) {
+            mkdir(public_path().$medium, 0777, true);
+        }
+        if (!file_exists(public_path().'/'.$small)) {
+            mkdir(public_path().$small, 0777, true);
+        }
+        if (!file_exists(public_path().'/'.$xsmall)) {
+            mkdir(public_path().$xsmall, 0777, true);
+        }
 
-            $statusCode = 200;
+        // $path = URL($filePath150 . $fileName150);
+
+        // if (!file_exists(public_path().'/'.$large.'/'.$origFileName)) {
+            $size = 1080;
+            resizeAndSave($file, $size, $origFilePath, $origFileName);
+        // }
+
+        if (!file_exists(public_path().'/'.$medium.'/'.$origFileName)) {
+            $size = 450;
+            resizeAndSave($file, $size, $medium, $origFileName);
+        }
+
+        if (!file_exists(public_path().'/'.$small.'/'.$origFileName)) {
+            $size = 300;
+            resizeAndSave($file, $size, $small, $origFileName);
+        }
+
+        if (!file_exists(public_path().'/'.$xsmall.'/'.$origFileName)) {
+            $size = 130;
+            resizeAndSave($file, $size, $xsmall, $origFileName);
         }
     }
 
     
 }
+
+
+
 
     
