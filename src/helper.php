@@ -157,7 +157,7 @@ if (!function_exists('storeImages')) {
             'medium_path' => $medium.'/'.$origFileName,
             'small_path' => $small.'/'.$origFileName,
             'xsmall_path' => $xsmall.'/'.$origFileName,
-        ]
+        ];
         return $data;
     }
 
