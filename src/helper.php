@@ -111,14 +111,14 @@ if (!function_exists('storeImages')) {
         $filename = md5($file->getClientOriginalName());
         $filetype = $file->getClientOriginalExtension();
         $origFileName = $filename.'.'.$filetype;
-        $large = $origFilePath .'/original';
+        $original = $origFilePath .'/original';
         $medium = $origFilePath .'/medium';
         $small = $origFilePath .'/small';
         $xsmall = $origFilePath .'/xsmall';
 
-        // if (!file_exists(public_path().'/'.$large)) {
-        //   mkdir(public_path().$large, 0777, true);
-        // }
+        if (!file_exists(public_path().'/'.$original)) {
+          mkdir(public_path().$original, 0777, true);
+        }
         if (!file_exists(public_path().'/'.$medium)) {
             mkdir(public_path().$medium, 0777, true);
         }
@@ -131,10 +131,10 @@ if (!function_exists('storeImages')) {
 
         // $path = URL($filePath150 . $fileName150);
 
-        // if (!file_exists(public_path().'/'.$large.'/'.$origFileName)) {
-            $size = 1080;
-            resizeAndSave($file, $size, $origFilePath, $origFileName);
-        // }
+        if (!file_exists(public_path().'/'.$original.'/'.$origFileName)) {
+            // $size = 1080;
+            saveOriginal($file, $original, $origFileName);
+        }
 
         if (!file_exists(public_path().'/'.$medium.'/'.$origFileName)) {
             $size = 450;
@@ -150,6 +150,15 @@ if (!function_exists('storeImages')) {
             $size = 130;
             resizeAndSave($file, $size, $xsmall, $origFileName);
         }
+
+        $data = [
+            'filename' => $origFileName,
+            'original_path' => $original.'/'.$origFileName,
+            'medium_path' => $medium.'/'.$origFileName,
+            'small_path' => $small.'/'.$origFileName,
+            'xsmall_path' => $xsmall.'/'.$origFileName,
+        ]
+        return $data;
     }
 
     
