@@ -32,12 +32,12 @@ if (!function_exists('resizeAndSave')) {
         $width = $image->width();
 
         if (($height > $size && $width > $size) || $height > $size || $width > $size) {
-            if ($height > $width) {
+            if ($height < $width) {
               //resize to width and constraint then crop to meet size
                 return $image->resize($size, null, function ($constraint) {
                     $constraint->aspectRatio();
                 })->save(public_path($filepath .'/'. $filename));
-            } elseif ($height < $width) {
+            } elseif ($height > $width) {
               //resize to height and contrain, crop, then save
                 return $image->resize(null, $size, function ($constraint) {
                     $constraint->aspectRatio();
@@ -69,12 +69,12 @@ if (!function_exists('resizeCropSquareAndSave')) {
         $width = $image->width();
 
         if (($height > $size && $width > $size) || $height > $size || $width > $size) {
-            if ($height > $width) {
+            if ($height < $width) {
               //resize to width and constraint then crop to meet size
                 return $image->resize($size, null, function ($constraint) {
                     $constraint->aspectRatio();
                 })->crop($size, $size)->save(public_path($filepath .'/'. $filename));
-            } elseif ($height < $width) {
+            } elseif ($height > $width) {
               //resize to height and contrain, crop, then save
                 return $image->resize(null, $size, function ($constraint) {
                     $constraint->aspectRatio();
