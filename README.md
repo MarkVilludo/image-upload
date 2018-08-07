@@ -23,9 +23,10 @@ composer require mark-villudo/image-upload
 ## Credits
 
 ```
-Master Jes Dolfo
+Jessica Dolfo lagonsin
 
 Facebook Profile
 https://www.facebook.com/jesdolfo
 
 ```
+
