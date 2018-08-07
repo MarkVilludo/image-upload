@@ -23,7 +23,8 @@ composer require mark-villudo/image-upload
 ## Credits
 
 ```
-Jessica Dolfo lagonsin
+Master ng mga Master
+walang iba kundi si Master Jes Dolfo
 
 Facebook Profile
 https://www.facebook.com/jesdolfo
