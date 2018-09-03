@@ -163,6 +163,33 @@ if (!function_exists('storeImages')) {
 
     
 }
+if (!function_exists('storeSingeImage')) {
+    //Dynamic store image with original path and file
+    function storeSingeImage($file, $origFilePath)
+    {
+        $filename = md5($file->getClientOriginalName());
+        $filetype = $file->getClientOriginalExtension();
+        $origFileName = $filename.'.'.$filetype;
+        $original = $origFilePath .'/original';
+
+        if (!file_exists(public_path().'/'.$original)) {
+          mkdir(public_path().$original, 0777, true);
+        }
+     
+        // $path = URL($filePath150 . $fileName150);
+        if (!file_exists(public_path().'/'.$original.'/'.$origFileName)) {
+            // $size = 1080;
+            saveOriginal($file, $original, $origFileName);
+        }
+
+      
+        $data = [
+            'filename' => $origFileName,
+            'original_path' => $original.'/'.$origFileName
+        ];
+        return $data;
+    }
+}
 
 
 
