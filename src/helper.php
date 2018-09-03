@@ -163,9 +163,9 @@ if (!function_exists('storeImages')) {
 
     
 }
-if (!function_exists('storeSingeImage')) {
+if (!function_exists('storeSingleImage')) {
     //Dynamic store image with original path and file
-    function storeSingeImage($file, $origFilePath)
+    function storeSingleImage($file, $origFilePath)
     {
         $filename = md5($file->getClientOriginalName());
         $filetype = $file->getClientOriginalExtension();
@@ -190,6 +190,7 @@ if (!function_exists('storeSingeImage')) {
         return $data;
     }
 }
+
 
 
 
