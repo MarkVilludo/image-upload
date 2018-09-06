@@ -26,7 +26,7 @@ composer require mark-villudo/image-upload
   $file = $request->file('file');
   $origFilePath = '/storage/categories';
   
-  //use helper to store images with multiple sizes
+  //use helper to store single image
   storeSingeImage($file, $origFilePath);
 ```
 
