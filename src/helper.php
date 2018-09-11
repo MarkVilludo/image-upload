@@ -170,7 +170,7 @@ if (!function_exists('storeSingleImage')) {
         $filename = md5($file->getClientOriginalName());
         $filetype = $file->getClientOriginalExtension();
         $origFileName = $filename.'.'.$filetype;
-        $original = $origFilePath .'/original';
+        $original = $origFilePath;
 
         if (!file_exists(public_path().'/'.$original)) {
           mkdir(public_path().$original, 0777, true);
