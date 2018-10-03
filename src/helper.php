@@ -193,6 +193,31 @@ if (!function_exists('storeImages')) {
 
     
 }
+
+if (!function_exists('storeImagesOnSize')) {
+    //Dynamic store image with original size, path and file
+    function storeImagesOnSize($file, $origFilePath, $size)
+    {
+        $filename = md5($file->getClientOriginalName());
+        $filetype = $file->getClientOriginalExtension();
+        $origFileName = $filename.'.'.$filetype;
+
+        if (!file_exists(public_path().'/'.$origFilePath)) {
+          mkdir(public_path().$origFilePath, 0777, true);
+        }
+
+        if (!file_exists(public_path().'/'.$origFilePath.'/'.$origFileName)) {
+            resizeAndSave($file, $size, $origFilePath, $origFileName);
+        }
+
+        $data = [
+            'filename' => $origFileName,
+            'filepath' => $origFilePath.'/'.$origFileName,
+        ];
+        return $data;
+    }
+}
+
 if (!function_exists('storeSingleImage')) {
     //Dynamic store image with original path and file
     function storeSingleImage($file, $origFilePath)
