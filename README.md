@@ -28,8 +28,6 @@ composer require mark-villudo/image-upload
   //use helper to store single image
   storeSingleImage($file, $origFilePath);
   
-  
-  //test webhook
 ```
 
 ## Credits
