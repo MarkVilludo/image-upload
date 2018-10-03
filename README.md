@@ -27,7 +27,7 @@ composer require mark-villudo/image-upload
   $origFilePath = '/storage/categories';
   
   //use helper to store single image
-  storeSingeImage($file, $origFilePath);
+  storeSingleImage($file, $origFilePath);
 ```
 
 ## Credits
