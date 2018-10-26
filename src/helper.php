@@ -108,7 +108,7 @@ if (!function_exists('storeImages')) {
     //Dynamic store image with original path and file
     function storeImages($file, $origFilePath)
     {
-        $filename = md5($file->getClientOriginalName());
+        $filename = md5(strtotime('now')); //md5($file->getClientOriginalName());
         $filetype = $file->getClientOriginalExtension();
         $origFileName = $filename.'.'.$filetype;
         $original = $origFilePath .'/original'; // maxres
@@ -198,7 +198,7 @@ if (!function_exists('storeImagesOnSize')) {
     //Dynamic store image with original size, path and file
     function storeImagesOnSize($file, $origFilePath, $size)
     {
-        $filename = md5($file->getClientOriginalName());
+        $filename = md5(strtotime('now')); //md5($file->getClientOriginalName());
         $filetype = $file->getClientOriginalExtension();
         $origFileName = $filename.'.'.$filetype;
 
@@ -222,7 +222,7 @@ if (!function_exists('storeSingleImage')) {
     //Dynamic store image with original path and file
     function storeSingleImage($file, $origFilePath)
     {
-        $filename = md5($file->getClientOriginalName());
+        $filename = md5(strtotime('now')); //md5($file->getClientOriginalName());
         $filetype = $file->getClientOriginalExtension();
         $origFileName = $filename.'.'.$filetype;
         $original = $origFilePath;
@@ -245,9 +245,3 @@ if (!function_exists('storeSingleImage')) {
         return $data;
     }
 }
-
-
-
-
-
-    
